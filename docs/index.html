@@ -1,12 +1,13 @@
 <!doctype html>
 <html>
+
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title>Reactor Knockoff</title>
 
 	<script>
-		if ( window.location.hostname.indexOf('.github.io') !== -1 && window.location.protocol !== 'https:' ) {
+		if (window.location.hostname.indexOf('.github.io') !== -1 && window.location.protocol !== 'https:') {
 			window.location.href = 'https:' + window.location.href.substring(window.location.protocol.length);
 		}
 	</script>
@@ -17,6 +18,7 @@
 	<link rel="stylesheet" href="css/app.perf.css">
 	<link rel="stylesheet" href="css/cms.css">
 </head>
+
 <body>
 	<div id="wrapper">
 		<main id="main" class="reactor_showing">
@@ -27,12 +29,12 @@
 					<h2 class="stats_section_heading heading">Stats</h2>
 					<!-- Heat -->
 					<section id="heat">
-						<h3 class="heading"><span class="current">Current</span> Heat</h3>
+						<h3 class="heading"><span class="current">現在の</span>熱量</h3>
 						<p id="heat_indicator">
 							<span id="heat_text">
 								<span id="heat_wrapper">
 									<span id="current_heat">0</span>/<span id="max_heat">0</span>
-									<span id="heat_per_tick_wrapper">(<span id="heat_per_tick">0</span> last tick)</span>
+									<span id="heat_per_tick_wrapper">(<span id="heat_per_tick">0</span> 直前のティック)</span>
 								</span>
 							</span>
 							<span id="heat_percentage"></span>
@@ -46,27 +48,28 @@
 					<!-- Power -->
 					<div id="power_section">
 						<section id="power">
-							<h3 class="heading"><span class="current">Current</span> Power</h3>
+							<h3 class="heading"><span class="current">現在の</span>蓄電量</h3>
 							<p id="power_indicator">
 								<span id="power_text">
 									<span id="current_power">0</span>/<span id="max_power">0</span>
 								</span>
-								<span id="power_per_tick_wrapper">(<span id="power_per_tick">0</span> last tick)</span>
+								<span id="power_per_tick_wrapper">(<span id="power_per_tick">0</span> 直前のティック)</span>
 
 								<span id="power_percentage"></span>
 							</p>
 						</section>
-						<button id="sell">Sell</button>
+						<button id="sell">売却</button>
 					</div>
 
 					<!-- Currency -->
 					<p id="currency">
 						<span id="money_wrapper">
 							$<span id="money">0</span>
-							<span id="money_per_tick_wrapper">(<span id="money_per_tick">0</span> last tick)</span>
+							<span id="money_per_tick_wrapper">(<span id="money_per_tick">0</span> 直前のティック)</span>
 						</span>
 						<span id="exotic_particles_wrapper">
-							(<span id="current_exotic_particles">0</span>/<span id="exotic_particles">0</span> EP, <span id="time_flux">0</span> TF)
+							(<span id="current_exotic_particles">0</span>/<span id="exotic_particles">0</span> EP, <span
+								id="time_flux">0</span> TF)
 						</span>
 					</p>
 					<!-- button id="scrounge">Scrounge for Cash</button -->
@@ -114,9 +117,12 @@
 					<menu id="nav">
 						<div class="flex_nav">
 							<menu>
-								<button id="options" class="nav" data-section="reactor_upgrades" data-page="options_section">Options</button>
-								<button id="show_help" class="nav" data-section="reactor_upgrades" data-page="help_section">Help</button>
-								<button id="show_about" class="nav" data-section="reactor_upgrades" data-page="about_section">About</button>
+								<button id="options" class="nav" data-section="reactor_upgrades"
+									data-page="options_section">Options</button>
+								<button id="show_help" class="nav" data-section="reactor_upgrades"
+									data-page="help_section">Help</button>
+								<button id="show_about" class="nav" data-section="reactor_upgrades"
+									data-page="about_section">About</button>
 							</menu>
 
 							<menu>
@@ -137,9 +143,12 @@
 
 						<div class="flex_nav">
 							<menu>
-								<button id="show_reactor" class="nav" data-section="reactor_upgrades" data-page="reactor_section">Reactor</button>
-								<button id="show_upgrades" class="nav" data-section="reactor_upgrades" data-page="upgrades_section">Upgrades</button>
-								<button id="show_experiments" class="nav" data-section="reactor_upgrades" data-page="experimental_upgrades_section">Experiments</button>
+								<button id="show_reactor" class="nav" data-section="reactor_upgrades"
+									data-page="reactor_section">原子炉</button>
+								<button id="show_upgrades" class="nav" data-section="reactor_upgrades"
+									data-page="upgrades_section">アップグレード</button>
+								<button id="show_experiments" class="nav" data-section="reactor_upgrades"
+									data-page="experimental_upgrades_section">実験</button>
 							</menu>
 
 							<menu>
@@ -168,7 +177,8 @@
 								Sells for: <span id="tooltip_sells"></span>
 							</p>
 							<p id="tooltip_chance_wrapper" title="Sells for">
-								EP chance: <span id="tooltip_chance"></span>% per tick (<span id="tooltip_chance_percent_of_total"></span>% of max)
+								EP chance: <span id="tooltip_chance"></span>% per tick (<span
+									id="tooltip_chance_percent_of_total"></span>% of max)
 							</p>
 						</div>
 						<div id="tooltip_text" class="subpanel">
@@ -182,7 +192,7 @@
 
 				<!-- -- Middle -- -->
 				<section id="objectives_section" class="panel">
-					<h2 id="objectives_header">Objective</h2>
+					<h2 id="objectives_header">目標</h2>
 					<div id="objectives_wrapper" class="subpanel">
 						<div id="objectives_content">
 							<p id="objective_title"></p>
@@ -198,9 +208,12 @@
 						<header id="reactor_header">
 							<h2 class="heading">Reactor</h2>
 							<div id="reactor_stats">
-								<span id="stats_vent" class="stat" title="Estimated total heat venting per tick">0</span>
-								<span id="stats_inlet" class="stat" title="Total potential heat inletting per tick">0</span>
-								<span id="stats_outlet" class="stat" title="Total potential heat outletting per tick">0</span>
+								<span id="stats_vent" class="stat"
+									title="Estimated total heat venting per tick">0</span>
+								<span id="stats_inlet" class="stat"
+									title="Total potential heat inletting per tick">0</span>
+								<span id="stats_outlet" class="stat"
+									title="Total potential heat outletting per tick">0</span>
 								<span id="stats_power" class="stat" title="Estimated power per tick">0</span>
 								<span id="stats_heat" class="stat" title="Estimated heat per tick">0</span>
 								<span id="stats_cash" class="stat" title="Estimated autosell cash per tick">0</span>
@@ -231,12 +244,14 @@
 							<div class="has_spoiler">
 								<h4>Exotic Particle setup</h4>
 								<p>
-									To generate Exotic Particles you will need to put heat into a Particle Accelerator and immediately take it out.
+									To generate Exotic Particles you will need to put heat into a Particle Accelerator
+									and immediately take it out.
 									To do this you can use either Heat Exchangers or Heat Inlets.
 									See below for an example:
 								</p>
 								<button class="show_spoiler">Show Spoilers</button>
-								<p class="spoiler"><img src="img/help/pa_spoiler.png" alt="Particle Accelerator setups"></p>
+								<p class="spoiler"><img src="img/help/pa_spoiler.png" alt="Particle Accelerator setups">
+								</p>
 							</div>
 						</div>
 					</section>
@@ -249,10 +264,11 @@
 							<p><button id="enable_local_save">Enable Local Save Only</button></p>
 							<div>
 								<p><button id="trigger_save">Save game</button>
-								<button id="export_save">Export save</button>
-								<button id="download_save">Download save</button>
-								<button id="import_save">Import save</button>
-								<button id="reset_game">Reset game</button></p>
+									<button id="export_save">Export save</button>
+									<button id="download_save">Download save</button>
+									<button id="import_save">Import save</button>
+									<button id="reset_game">Reset game</button>
+								</p>
 								<dialog id="Import_Export_dialog" style="padding: 0; border: none;">
 									<div class="panel">
 										<form method="dialog" class="subpanel">
@@ -269,7 +285,7 @@
 							</div>
 							<div>
 								<p><button id="speed_hack">Speed Hack</button>
-								<button id="offline_tick">Offline Tick</button>
+									<button id="offline_tick">Offline Tick</button>
 								</p>
 							</div>
 						</div>
@@ -279,11 +295,15 @@
 					<section id="about_section" class="page">
 						<h2 class="heading">About</h2>
 						<div id="about" class="subpanel explanitory cms">
-							<p>Based on <a href="http://www.kongregate.com/games/Cael/reactor-incremental" target="_blank">Reactor Incremental</a>.</p>
-							<p>UI based on <a href="http://opengameart.org/content/sci-fi-user-interface-elements" target="_blank">Sci-fi User Interface Elements</a> by <a href="http://opengameart.org/users/buch" target="_blank">Buch</a>.</p>
+							<p>Based on <a href="http://www.kongregate.com/games/Cael/reactor-incremental"
+									target="_blank">Reactor Incremental</a>.</p>
+							<p>UI based on <a href="http://opengameart.org/content/sci-fi-user-interface-elements"
+									target="_blank">Sci-fi User Interface Elements</a> by <a
+									href="http://opengameart.org/users/buch" target="_blank">Buch</a>.</p>
 
 							<p></p>
-							<p><button class="nav" data-section="reactor_upgrades" data-page="patch_section">See Patch Notes</button></p>
+							<p><button class="nav" data-section="reactor_upgrades" data-page="patch_section">See Patch
+									Notes</button></p>
 						</div>
 					</section>
 
@@ -291,7 +311,8 @@
 					<section id="patch_section" class="page">
 						<h2 class="heading">Patch Notes</h2>
 						<div id="about" class="subpanel explanitory cms">
-							<button id="show_reactor" class="nav" data-section="reactor_upgrades" data-page="reactor_section">Back to Reactor</button>
+							<button id="show_reactor" class="nav" data-section="reactor_upgrades"
+								data-page="reactor_section">Back to Reactor</button>
 							<section class="patch">
 								<h3>v1.3.2 - June 14th, 2018</h3>
 								<ul>
@@ -299,7 +320,7 @@
 									<ul>
 										<li>Upgrade tick catchup to offline ticks!</li>
 									</ul>
-								<ul>
+									<ul>
 							</section>
 							<section class="patch">
 								<h3>v1.3.1 - June 12th, 2018</h3>
@@ -318,22 +339,27 @@
 
 										</ul>
 										<li>A reset button!</li>
-										<li>New upgrade which prevents outlets from outputting more than what the vent can handle</li>
-										<li>Speed hack toggle, throw more stuff into their own layer and thus reduce paint time (at the cost of memory)</li>
+										<li>New upgrade which prevents outlets from outputting more than what the vent
+											can handle</li>
+										<li>Speed hack toggle, throw more stuff into their own layer and thus reduce
+											paint time (at the cost of memory)</li>
 										<li>Tick catchup</li>
 									</ul>
 									<li>Improvement:</li>
 									<ul>
-										<li>Replacing now works with same category parts, eg: downgrading, switching cell type</li>
+										<li>Replacing now works with same category parts, eg: downgrading, switching
+											cell type</li>
 										<li>Replacing tiles is now faster</li>
 										<li>Less cpu usage when not on reactor tile panel</li>
 										<li>Shift/Double click now works on empty tiles</li>
 										<li>Greatly improve performance</li>
 										<ul>
-											<li>Faster repaint time by layering frequently updated ui (Improve fps/lag)</li>
+											<li>Faster repaint time by layering frequently updated ui (Improve fps/lag)
+											</li>
 											<li>Faster tick timing (faster loading after offline)</li>
 											<li>Less lag spike for UI, tooltip</li>
-											<li>Percentage bar and overheating redness are now updated in steps (reduce repainting)</li>
+											<li>Percentage bar and overheating redness are now updated in steps (reduce
+												repainting)</li>
 										</ul>
 										<li>Tile queue now buys as many as possible per tick</li>
 									</ul>
@@ -346,7 +372,8 @@
 										<li>Fixes reflector ui load bug</li>
 										<li>Fixes heat outlet heat distribution bug with multi-tier setup</li>
 										<li>Fixes extreme plating adding to max power despite not being bought yet</li>
-										<li>Make sure background get updated when placing plating so it doesn't get stuck on red</li>
+										<li>Make sure background get updated when placing plating so it doesn't get
+											stuck on red</li>
 									</ul>
 								</ul>
 							</section>
@@ -372,14 +399,16 @@
 								<h4>Bug Fixes:</h4>
 								<ul>
 									<li>Fixed an issue with game loop firing too often</li>
-									<li>Platings (and possibly other things) now give 100% of their cost back when sold</li>
+									<li>Platings (and possibly other things) now give 100% of their cost back when sold
+									</li>
 									<li>Fixed sell costs for some components</li>
 									<li>Reflectors now start with a base % greater than 0</li>
 									<li>Multiple Exotic Particles gained when over 100% chance</li>
 									<li>Fixed support for larger touch devices to allow for selling, etc</li>
 								</ul>
 							</section>
-							<button id="show_reactor" class="nav" data-section="reactor_upgrades" data-page="reactor_section">Back to Reactor</button>
+							<button id="show_reactor" class="nav" data-section="reactor_upgrades"
+								data-page="reactor_section">Back to Reactor</button>
 						</div>
 					</section>
 
@@ -431,16 +460,20 @@
 							</div>
 
 							<div id="reboot_section" class="explanitory">
-								<button id="reboot">Reboot for <span id="reboot_exotic_particles">0</span> Exotic Particles (EP)</button>
+								<button id="reboot">Reboot for <span id="reboot_exotic_particles">0</span> Exotic
+									Particles (EP)</button>
 								<p>
-									Rebooting the reactor will remove all parts, regular upgrades and money. Only your current experimental upgrades and EP will stay with you.
+									Rebooting the reactor will remove all parts, regular upgrades and money. Only your
+									current experimental upgrades and EP will stay with you.
 								</p>
 							</div>
 
 							<div id="refund_section" class="explanitory">
-								<button id="refund">Reboot and refund <span id="refund_exotic_particles">0</span> Exotic Particles</button>
+								<button id="refund">Reboot and refund <span id="refund_exotic_particles">0</span> Exotic
+									Particles</button>
 								<p>
-									All of the above applies, however this will undo all your experiment upgrades and refund all your Exotic Particles.
+									All of the above applies, however this will undo all your experiment upgrades and
+									refund all your Exotic Particles.
 								</p>
 							</div>
 						</section>
@@ -461,4 +494,5 @@
 	<script src="js/app.hotkeys.js"></script>
 	<script src="js/app.js"></script>
 </body>
+
 </html>

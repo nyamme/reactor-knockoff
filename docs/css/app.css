@@ -345,16 +345,14 @@ menu {
 ////////////////////////// */
 
 #objectives_section {
-	display: table;
+	display: flex;
 	width: 100%;
 	max-width: 100%;
 }
 
 #objectives_header {
 	font-size: .9em;
-	display: table-cell;
 	padding-right: 5px;
-	width: 1px;
 	line-height: 1.7em;
 }
 
@@ -363,7 +361,7 @@ menu {
 }
 
 #objectives_wrapper {
-	display: table-cell;
+	flex: 1;
 	background: #222C38;
 	padding: 0 4px;
 	position: relative;
