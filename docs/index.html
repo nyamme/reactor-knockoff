@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	<title>Reactor Knockoff</title>
+	<title>Reactor Knockoff: 非公式日本語版</title>
 
 	<script>
 		if (window.location.hostname.indexOf('.github.io') !== -1 && window.location.protocol !== 'https:') {
@@ -152,6 +152,8 @@
 							</menu>
 
 							<menu>
+								<button id="quick_save">クイックセーブ</button>
+								<button id="quick_load">クイックロード</button>
 								<button id="pause_toggle"></button>
 							</menu>
 						</div>
@@ -263,12 +265,18 @@
 							<p><button id="enable_google_drive_save">Enable Google Drive Online Save</button></p>
 							<p><button id="enable_local_save">Enable Local Save Only</button></p>
 							<div>
-								<p><button id="trigger_save">Save game</button>
-									<button id="export_save">Export save</button>
-									<button id="download_save">Download save</button>
-									<button id="import_save">Import save</button>
-									<button id="reset_game">Reset game</button>
-								</p>
+								<div>
+									<div>
+										<button id="trigger_save">ゲームをセーブ</button>
+									</div>
+									<div>
+										<button id="export_save">セーブをエクスポート</button>
+										<button id="download_save">セーブをダウンロード</button>
+										<button id="import_save">セーブをインポート</button>
+										<button id="upload_save">セーブをアップロード</button>
+										<button id="reset_game">ゲームを初期化する</button>
+									</div>
+								</div>
 								<dialog id="Import_Export_dialog" style="padding: 0; border: none;">
 									<div class="panel">
 										<form method="dialog" class="subpanel">
@@ -443,7 +451,7 @@
 
 						<!-- experimental -->
 						<section id="experimental_upgrades_section" class="page">
-							<h2 class="heading">Experimental Upgrades</h2>
+							<h2 class="heading">実験用アップグレード</h2>
 
 							<div id="experimental_upgrades" class="subpanel">
 								<div id="experimental_laboratory"></div>
@@ -460,20 +468,17 @@
 							</div>
 
 							<div id="reboot_section" class="explanitory">
-								<button id="reboot">Reboot for <span id="reboot_exotic_particles">0</span> Exotic
-									Particles (EP)</button>
+								<button id="reboot">再起動して<span id="reboot_exotic_particles">0</span> EPを獲得</button>
 								<p>
-									Rebooting the reactor will remove all parts, regular upgrades and money. Only your
-									current experimental upgrades and EP will stay with you.
+									再起動すると生成したEPを獲得しますが、すべての部品、アップグレード、資金が削除されます。実験用アップグレードとEPは引き継がれます。
 								</p>
 							</div>
 
 							<div id="refund_section" class="explanitory">
-								<button id="refund">Reboot and refund <span id="refund_exotic_particles">0</span> Exotic
-									Particles</button>
+								<button id="refund">再起動 + 実験をリセットして<span id="refund_exotic_particles">0</span>
+									EPの再獲得</button>
 								<p>
-									All of the above applies, however this will undo all your experiment upgrades and
-									refund all your Exotic Particles.
+									通常の再起動に加えて、実験用アップグレードを取り消してEPを再獲得します。
 								</p>
 							</div>
 						</section>

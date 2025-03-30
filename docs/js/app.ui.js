@@ -695,6 +695,17 @@
 		window.sell();
 	};
 
+	// Quick Save
+	let quickSave;
+
+	$('#quick_save').onclick = () => {
+		quickSave = ui.game.saves();
+	};
+
+	$('#quick_load').onclick = () => {
+		ui.game.loads(quickSave);
+	}
+
 	// Save
 	$('#trigger_save').onclick = function () {
 		ui.game.save_manager.active_saver.save(ui.game.saves());
@@ -709,7 +720,7 @@
 		var saveAsBlob = new Blob([save_data], { type: 'text/plain' });
 		var downloadLink = document.createElement("a");
 
-		downloadLink.download = "reactor_knockoff_save.base64";
+		downloadLink.download = `reactor_knockoff_save_${Date.now()}.base64`;
 		downloadLink.textContent = "Download File";
 		downloadLink.href = URL.createObjectURL(saveAsBlob);
 		downloadLink.onclick = (event) => {
@@ -721,6 +732,27 @@
 		document.body.appendChild(downloadLink);
 
 		downloadLink.click();
+	};
+
+	$('#upload_save').onclick = () => {
+		const input = document.createElement("input");
+
+		input.type = "file";
+		input.onchange = async () => {
+			input.onchange = null;
+
+			const file = input.files?.[0];
+
+			if (!file) {
+				return;
+			}
+
+			const saveData = await file.text()
+
+			ui.game.loads(saveData);
+		};
+
+		input.click();
 	};
 
 	$('#export_save').onclick = function () {

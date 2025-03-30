@@ -142,7 +142,7 @@
 				}
 			},
 			{
-				title: 'Increase your max power with a Capacitor',
+				title: 'コンデンサで最大蓄電量を上げる',
 				reward: 100,
 				check: function () {
 					for (var ri = 0; ri < game.max_rows; ri++) {
@@ -169,14 +169,14 @@
 				}
 			},
 			{
-				title: 'Purchase one Improved Chronometers upgrade',
+				title: '改良された高精度時計アップグレードを購入する',
 				reward: 5000,
 				check: function () {
 					return game.upgrade_objects['chronometer'].level > 0;
 				}
 			},
 			{
-				title: 'Have 5 different kinds of components in your reactor',
+				title: '原子炉に5種類のコンポーネントを置く',
 				reward: 2000,
 				check: function () {
 					var count = 0;
@@ -200,7 +200,7 @@
 				}
 			},
 			{
-				title: 'Have at least 10 Capacitors in your reactor',
+				title: '少なくとも10個以上のコンデンサを原子炉に置く',
 				reward: 5000,
 				check: function () {
 					var count = 0;
@@ -222,7 +222,7 @@
 				}
 			},
 			{
-				title: 'Generate at least 500 power per tick',
+				title: '1ティックで500以上の電力を生成する',
 				reward: 5000,
 				check: function () {
 					return game.stats_power >= 500 && !game.paused;
